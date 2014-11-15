@@ -25,4 +25,21 @@ public class Cell {
         }
         return neighbourPositions;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cell cell = (Cell) o;
+
+        if (!point.equals(cell.point)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return point.hashCode();
+    }
 }

@@ -61,4 +61,17 @@ public class GameOfLifeTests {
         assertTrue(shouldLiveInNextGeneration);
     }
 
+    @Test
+    public void cellShouldDieFromOvercrowding() {
+        // given
+        Board board = new Board(new Cell(new Point(0, 0)), new Cell(new Point(0, 1)), new Cell(new Point(0, 2)), new Cell(new Point(1, 2)));
+        Cell cell = new Cell(new Point(1, 1));
+
+        // when
+        boolean dieFromOvercrowding = board.cellIsOvercrowded(cell);
+
+        // then
+        assertTrue(dieFromOvercrowding);
+    }
+
 }

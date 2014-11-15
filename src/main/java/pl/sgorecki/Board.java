@@ -1,6 +1,9 @@
 package pl.sgorecki;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Sebastian Górecki <gorecki.sebastian@gmail.com>
@@ -21,6 +24,10 @@ public class Board {
         return cellNeighbours >= 2 || cellNeighbours <= 3;
     }
 
+    public boolean cellIsOvercrowded(Cell cell) {
+        return countCellNeighbours(cell) > 3;
+    }
+
     private int countCellNeighbours(Cell cell) {
         int neighbourCount = 0;
         final Collection<Point> neighboursPositions = cell.getNeighboursPositions();
@@ -31,5 +38,4 @@ public class Board {
         }
         return neighbourCount;
     }
-
 }
