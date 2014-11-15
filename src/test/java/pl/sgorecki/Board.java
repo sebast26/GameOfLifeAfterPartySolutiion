@@ -16,6 +16,11 @@ public class Board {
         return countCellNeighbours(cell) < 2;
     }
 
+    public boolean cellShouldLiveInNextGeneration(Cell cell) {
+        final int cellNeighbours = countCellNeighbours(cell);
+        return cellNeighbours >= 2 || cellNeighbours <= 3;
+    }
+
     private int countCellNeighbours(Cell cell) {
         int neighbourCount = 0;
         final Collection<Point> neighboursPositions = cell.getNeighboursPositions();
@@ -26,4 +31,5 @@ public class Board {
         }
         return neighbourCount;
     }
+
 }

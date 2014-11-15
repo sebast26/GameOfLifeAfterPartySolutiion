@@ -48,4 +48,17 @@ public class GameOfLifeTests {
         assertTrue(underPopulatedCell);
     }
 
+    @Test
+    public void cellShouldLiveInNextGeneration() {
+        // given
+        Board board = new Board(new Cell(new Point(0, 0)), new Cell(new Point(0, 1)));
+        Cell cell = new Cell(new Point(1, 0));
+
+        // when
+        boolean shouldLiveInNextGeneration = board.cellShouldLiveInNextGeneration(cell);
+
+        // then
+        assertTrue(shouldLiveInNextGeneration);
+    }
+
 }
