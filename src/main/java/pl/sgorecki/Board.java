@@ -9,7 +9,7 @@ import java.util.Set;
  * @author Sebastian Górecki <gorecki.sebastian@gmail.com>
  */
 public class Board {
-    private final Set<Cell> cells;
+    private Set<Cell> cells;
 
     public Board(Cell... cells) {
         this.cells = new HashSet<>(Arrays.asList(cells));
@@ -40,6 +40,21 @@ public class Board {
             }
         }
         return resurrectedCells;
+    }
+
+    public void createNextGeneration() {
+        Set<Cell> nextGenerationCells = new HashSet<>(cells);
+        for (Cell cell : cells) {
+            if (cellIsUnderPopulated(cell)) nextGenerationCells.remove(cell);
+            if (cellShouldLiveInNextGeneration(cell)) ;
+            if (cellIsOvercrowded(cell)) nextGenerationCells.remove(cell);
+        }
+        nextGenerationCells.addAll(resurrectDeadCells());
+        cells = nextGenerationCells;
+    }
+
+    public Collection<Cell> getCells() {
+        return cells;
     }
 
     private int countCellNeighbours(Cell cell) {
