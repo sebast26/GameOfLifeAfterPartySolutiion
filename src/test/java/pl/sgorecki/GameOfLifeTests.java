@@ -22,7 +22,7 @@ public class GameOfLifeTests {
         Collection<Point> points = cell.getNeighboursPositions();
 
         // then
-        Set<Point> expectedPoints = new HashSet<>();
+        Collection<Point> expectedPoints = new HashSet<>();
         expectedPoints.add(new Point(-1, -1));
         expectedPoints.add(new Point(-1, 0));
         expectedPoints.add(new Point(-1, 1));
