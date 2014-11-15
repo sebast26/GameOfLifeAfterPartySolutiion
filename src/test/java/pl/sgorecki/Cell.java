@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
+ * Cell represents ONLY alive cells in Board/Grid.
  * @author Sebastian Górecki <gorecki.sebastian@gmail.com>
  */
 public class Cell {

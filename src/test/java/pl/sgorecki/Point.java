@@ -1,6 +1,7 @@
 package pl.sgorecki;
 
 /**
+ * Point represents coordinates on Board.
  * @author Sebastian Górecki <gorecki.sebastian@gmail.com>
  */
 public class Point {
