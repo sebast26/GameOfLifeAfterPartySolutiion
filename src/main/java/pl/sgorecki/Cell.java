@@ -42,4 +42,11 @@ public class Cell {
     public int hashCode() {
         return point.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "point=" + point +
+                '}';
+    }
 }

@@ -28,6 +28,20 @@ public class Board {
         return countCellNeighbours(cell) > 3;
     }
 
+    public Collection<Cell> resurrectDeadCells() {
+        Collection<Cell> resurrectedCells = new HashSet<>();
+        for (Cell cell : cells) {
+            final Collection<Point> neighboursPositions = cell.getNeighboursPositions();
+            for (Point neighbour : neighboursPositions) {
+                if (cell.equals(new Cell(neighbour))) continue;
+                if (countCellNeighbours(new Cell(neighbour)) == 3) {
+                    resurrectedCells.add(new Cell(neighbour));
+                }
+            }
+        }
+        return resurrectedCells;
+    }
+
     private int countCellNeighbours(Cell cell) {
         int neighbourCount = 0;
         final Collection<Point> neighboursPositions = cell.getNeighboursPositions();

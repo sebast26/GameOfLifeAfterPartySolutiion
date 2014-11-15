@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -74,4 +73,20 @@ public class GameOfLifeTests {
         assertTrue(dieFromOvercrowding);
     }
 
+    @Test
+    public void deadCellShouldAlive() {
+        // given
+        Board board = new Board(new Cell(new Point(0, 0)), new Cell(new Point(0, 1)), new Cell(new Point(0, 2)));
+        Cell cell1 = new Cell(new Point(1, 1));
+        Cell cell2 = new Cell(new Point(-1, 1));
+
+        // when
+        Collection<Cell> resurrectedCells = board.resurrectDeadCells();
+
+        // then
+        Collection<Cell> expectedCells = new HashSet<>();
+        expectedCells.add(cell1);
+        expectedCells.add(cell2);
+        assertEquals(expectedCells, resurrectedCells);
+    }
 }
